@@ -29,3 +29,28 @@ The Laravel Request System is a web-based application developed using Laravel an
 
 ```bash
 composer install
+
+## Laboratory 2 - Request Data Model
+
+### Request Table
+
+The Laravel request system uses a `requests` table to store submitted requests.
+
+| Field | Type | Constraint | Purpose |
+|---|---|---|---|
+| id | BIGINT UNSIGNED | Primary Key, Auto Increment | Unique request number |
+| requester_name | VARCHAR(100) | Required | Person submitting the request |
+| requester_email | VARCHAR(255) | Required | Contact email of requester |
+| item_name | VARCHAR(150) | Required | Requested item or service |
+| quantity | INT UNSIGNED | Required, greater than 0 | Requested quantity |
+| purpose | TEXT | Required | Reason for the request |
+| status | VARCHAR(20) | Default: pending | Current request state |
+| created_at | TIMESTAMP | Required | Creation time |
+| updated_at | TIMESTAMP | Required | Last update time |
+
+### Migration
+
+Create the migration using:
+
+```bash
+php artisan make:migration create_requests_table
