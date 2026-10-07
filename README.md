@@ -70,3 +70,6 @@ Reviewer Responsibilities:
 - Test the system
 - Leave a substantive review comment
 - Approve the pull request after fixes
+
+## Laboratory 3 Verification
+Verification instruction: Follow the required access checks.
