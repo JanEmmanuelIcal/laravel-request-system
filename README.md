@@ -54,3 +54,19 @@ Create the migration using:
 
 ```bash
 php artisan make:migration create_requests_table
+
+### Lab 3
+Driver: [Jan Emmanuel M. Ical]
+Reviewer: [Myla A. Barrameda]
+
+Driver Responsibilities:
+- Implement the security changes
+- Run tests
+- Push the feature branch
+- Create the pull request
+
+Reviewer Responsibilities:
+- Inspect the implementation
+- Test the system
+- Leave a substantive review comment
+- Approve the pull request after fixes
