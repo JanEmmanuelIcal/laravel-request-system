@@ -72,4 +72,4 @@ Reviewer Responsibilities:
 - Approve the pull request after fixes
 
 ## Laboratory 3 Verification
-Verification instruction: Test student ownership and deny access to another student's requests.
+Verification instruction: Test administrator access and administrator-only status updates.
