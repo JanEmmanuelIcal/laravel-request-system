@@ -44,17 +44,17 @@ class ServiceRequestController extends Controller
 
         $user = auth()->user();
 
-        $serviceRequest = new ServiceRequest();
+        $serviceRequest = new ServiceRequest;
 
-$serviceRequest->user_id = $user->id;
-$serviceRequest->requester_name = $user->name;
-$serviceRequest->requester_email = $user->email;
-$serviceRequest->item_name = $validated['item_name'];
-$serviceRequest->quantity = $validated['quantity'];
-$serviceRequest->purpose = $validated['purpose'];
-$serviceRequest->status = 'pending';
+        $serviceRequest->user_id = $user->id;
+        $serviceRequest->requester_name = $user->name;
+        $serviceRequest->requester_email = $user->email;
+        $serviceRequest->item_name = $validated['item_name'];
+        $serviceRequest->quantity = $validated['quantity'];
+        $serviceRequest->purpose = $validated['purpose'];
+        $serviceRequest->status = 'pending';
 
-$serviceRequest->save();
+        $serviceRequest->save();
 
         return redirect()
             ->route('requests.index')
@@ -69,9 +69,8 @@ $serviceRequest->save();
             'status' => ['required', 'in:pending,approved,rejected'],
         ]);
 
-        $serviceRequest->update([
-            'status' => $validated['status'],
-        ]);
+        $serviceRequest->status = $validated['status'];
+        $serviceRequest->save();
 
         return redirect()
             ->route('requests.show', $serviceRequest)

@@ -21,8 +21,8 @@
 - Student login.
 - Create request using STAGE-LIB-08.
 - Retrieve the saved request.
-- Administrator status update.
-- Student restriction from administrator-only updates.
+- Admin status updates.
+- Verify students cannot update admin-only statuses.
 
 ## Failure and Rollback
 - Deploy instructor-approved faulty version.
@@ -30,7 +30,7 @@
 - Roll back to the known-good version.
 - Redeploy the known-good version.
 - Repeat smoke tests.
-- Confirm saved data remains intact.
+- Confirm saved data remains available.
 
 ## Current Status
 Release preparation documented.
