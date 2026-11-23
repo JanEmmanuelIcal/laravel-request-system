@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div class="mb-6">
+        <h1 class="text-2xl font-bold text-white">Welcome back</h1>
+        <p class="mt-1 text-sm text-slate-400">Sign in to manage your service requests.</p>
+    </div>
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -40,7 +45,7 @@
             @endif
 
             <x-primary-button class="ms-3">
-                {{ __('Log in') }}
+                {{ __('Sign in') }}
             </x-primary-button>
         </div>
     </form>

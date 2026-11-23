@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <div class="mb-6">
+        <h1 class="text-2xl font-bold text-white">Create an account</h1>
+        <p class="mt-1 text-sm text-slate-400">Register as a requester to submit service requests.</p>
+    </div>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
