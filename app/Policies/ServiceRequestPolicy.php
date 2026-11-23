@@ -28,7 +28,7 @@ class ServiceRequestPolicy
      */
     public function create(User $user): bool
     {
-        return !$user->is_admin;
+        return ! $user->is_admin;
     }
 
     /**
@@ -36,6 +36,6 @@ class ServiceRequestPolicy
      */
     public function updateStatus(User $user, ServiceRequest $serviceRequest): bool
     {
-        return $user->is_admin;
+        return $user->is_admin === true;
     }
 }

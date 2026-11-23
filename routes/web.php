@@ -9,7 +9,27 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $user = auth()->user();
+
+    if ($user->is_admin) {
+        $counts = [
+            'total' => App\Models\ServiceRequest::count(),
+            'pending' => App\Models\ServiceRequest::where('status', 'pending')->count(),
+            'approved' => App\Models\ServiceRequest::where('status', 'approved')->count(),
+            'rejected' => App\Models\ServiceRequest::where('status', 'rejected')->count(),
+        ];
+        $recentRequests = App\Models\ServiceRequest::latest()->take(5)->get();
+    } else {
+        $counts = [
+            'total' => App\Models\ServiceRequest::where('user_id', $user->id)->count(),
+            'pending' => App\Models\ServiceRequest::where('user_id', $user->id)->where('status', 'pending')->count(),
+            'approved' => App\Models\ServiceRequest::where('user_id', $user->id)->where('status', 'approved')->count(),
+            'rejected' => App\Models\ServiceRequest::where('user_id', $user->id)->where('status', 'rejected')->count(),
+        ];
+        $recentRequests = App\Models\ServiceRequest::where('user_id', $user->id)->latest()->take(5)->get();
+    }
+
+    return view('dashboard', compact('counts', 'recentRequests'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

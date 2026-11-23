@@ -14,6 +14,7 @@ class ServiceRequest extends Model
         'item_name',
         'quantity',
         'purpose',
+        'status',
     ];
 
     protected $casts = [

@@ -25,10 +25,18 @@ The Laravel Request System is a web-based application developed using Laravel an
 
 1. Clone the repository.
 2. Open the project folder in the terminal.
-3. Install the Laravel dependencies:
+3. Install the Laravel dependencies and configure the local environment:
 
 ```bash
 composer install
+copy .env.example .env
+php artisan key:generate
+php artisan migrate
+```
+
+For local development, start the app with `composer run dev` (or `php artisan serve`).
+Use the instructor-provided web service and deployment workflow for staging; do not use
+`php artisan serve` as the staging server.
 ```
 
 ## Laboratory 2 - Request Data Model
@@ -57,7 +65,7 @@ Create the migration using:
 php artisan make:migration create_requests_table
 ```
 
-### Lab 3
+## Lab 3
 Driver: [Jan Emmanuel M. Ical]
 Reviewer: [Kris Angela Bon]
 
